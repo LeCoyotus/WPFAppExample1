@@ -1,0 +1,41 @@
+﻿<Window x:Class="ControlWpf.AnimalsBySpecies"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlWpf"
+        mc:Ignorable="d"
+        Title="AnimalsBySpecies" Height="450" Width="800">
+    <Grid>
+		<DataGrid Name="DgAnimals" 
+		          CanUserAddRows="False"
+		          RowHeaderWidth="0"
+		          ItemsSource="{Binding AnimalsModel}" 
+		          SelectedItem="{Binding SelectedAnimal, Mode=TwoWay}"
+		          AutoGenerateColumns="False" 
+		          Margin="10">
+			<DataGrid.Resources>
+				<Style TargetType="{x:Type DataGridColumnHeader}">
+					<Setter Property="Background" Value="#FF6BBFEF"/>
+					<Setter Property="Padding" Value="5"/>
+					<Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+					<Setter Property="HorizontalContentAlignment" Value="Center"/>
+					<Setter Property="BorderThickness" Value="1,1,1,2"/>
+					<Setter Property="BorderBrush" Value="#FFB0B0B0" />
+				</Style>
+			</DataGrid.Resources>
+
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="30"/>
+				<DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="100"/>
+				<DataGridTextColumn Header="ID Number" Binding="{Binding IdentificationNumber}" Width="100"/>
+				<DataGridTextColumn Header="ID Spe" Binding="{Binding SpeciesId}" Width="50"/>
+				<DataGridTextColumn Header="Species" Binding="{Binding SpeciesName}" Width="70"/>
+				<DataGridTextColumn Header="Race" Binding="{Binding Race}" Width="100"/>
+				<DataGridTextColumn Header="Sex" Binding="{Binding AnimalSex}" Width="100"/>
+				<DataGridTextColumn Header="Age" Binding="{Binding Age}" Width="40"/>
+				<DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*"/>
+			</DataGrid.Columns>
+		</DataGrid>
+	</Grid>
+</Window>
